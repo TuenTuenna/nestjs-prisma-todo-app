@@ -1,0 +1,20 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// 데이터 베이스 연동
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// 만들려는 모델
+model Todo {
+  id    Int     @default(autoincrement()) @id
+  title String
+  content  String?
+  is_done Boolean? @default(false)
+}
